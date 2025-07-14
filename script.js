@@ -44,15 +44,18 @@ const con05 = document.querySelector(".con05");
 const pinSection = document.querySelector(".pinSection");
 const tl = gsap.timeline();
 
-const mySplitText = document.querySelector(".headLine01");
-
+const split = new SplitText(".headLine01", { type: "chars" });
+const split02 = new SplitText(".headLine02", { type: "chars" });
+const split03 = new SplitText(".con02 h3", { type: "chars" });
+const mySplitText = split.chars; // 문자 배열
+const mySplitText02 = split02.chars; // 문자 배열
+const mySplitText03 = split03.chars; // 문자 배열
+// tl.to(con01, {
+//   height: "600px",
+//   duration: 1,
+//   ease: "power2.inOut",
+// });
 tl.to(con01, {
-  height: "600px",
-  duration: 1,
-  ease: "power2.inOut",
-});
-tl.to(con01, {
-  width: "100%",
   height: "100vh",
   duration: 1,
   ease: "power2.inOut",
@@ -60,14 +63,18 @@ tl.to(con01, {
 tl.from(mySplitText, {
   opacity: 0,
   y: 100,
-  duration: 0.25,
-  ease: Power1.easeIn,
+  skewY: 10,
+  duration: 0.6,
+  stagger: 0.1,
+  ease: "power4.out",
 });
-tl.to(header, {
-  top: "5%",
-  duration: 1,
-  ease: "power2.inOut",
+tl.from(mySplitText02, {
+  opacity: 0,
+  y: 60,
+  duration: 0.6,
+  ease: "power4.out",
 });
+
 tl.call(() => {
   document.body.style.height = "auto";
   document.body.style.overflowY = "auto";
@@ -85,17 +92,17 @@ gsap.to(".con01", {
   },
 });
 
-gsap.to("main", {
-  background: "#111",
-  color: "#fff",
-  ease: "none", // scrub 시 꼭 필요
-  scrollTrigger: {
-    trigger: ".con02",
-    start: "-300px center",
-    end: "bottom center",
-    scrub: true,
-  },
-});
+// gsap.to("main", {
+//   background: "#111",
+//   color: "#fff",
+//   ease: "none", // scrub 시 꼭 필요
+//   scrollTrigger: {
+//     trigger: ".con02",
+//     start: "-300px center",
+//     end: "bottom center",
+//     scrub: true,
+//   },
+// });
 
 gsap.to("main", {
   width: "100%",
@@ -129,6 +136,7 @@ gsap.to(".titleText p:first-child", {
     scrub: true,
   },
 });
+
 gsap.to(".titleText p:last-child", {
   right: "0",
   ease: "none", // scrub 시 꼭 필요
@@ -138,6 +146,44 @@ gsap.to(".titleText p:last-child", {
     scrub: true,
   },
 });
+
+gsap.from(".con02 h3", {
+  opacity: 0,
+  y: 60,
+  skewY: 10,
+  duration: 0.6,
+  stagger: 0.1,
+  ease: "power4.out",
+  scrollTrigger: {
+    trigger: ".con02",
+    start: "-5% top", // .con02가 뷰포트 80% 지점에 닿을 때 실행
+    end: "-5% top", // .con02가 뷰포트 80% 지점에 닿을 때 실행
+  },
+});
+
+// gsap.to(".con02 > div", {
+//   duration: 0.6,
+//   width: "100%",
+//   ease: "power4.out",
+//   scrollTrigger: {
+//     trigger: ".con02",
+//     start: "-5% top", // .con02가 뷰포트 80% 지점에 닿을 때 실행
+//     end: "-5% top", // .con02가 뷰포트 80% 지점에 닿을 때 실행
+//     markers: true, // 디버깅용, 완료 후 제거 가능
+//   },
+// });
+
+// gsap.to(".con02 div p", {
+//   duration: 0.8,
+//   opacity: 1,
+//   delay: 0.3,
+//   scrollTrigger: {
+//     trigger: ".con02",
+//     start: "-5% top", // .con02가 뷰포트 80% 지점에 닿을 때 실행
+//     end: "-5% top", // .con02가 뷰포트 80% 지점에 닿을 때 실행
+//     markers: true, // 디버깅용, 완료 후 제거 가능
+//   },
+// });
 
 gsap.to(".con03", {
   width: "100%",
@@ -196,22 +242,27 @@ ScrollTrigger.create({
   },
   // markers: true, // 디버깅용
 });
-var image = document.getElementsByClassName("thumbnail");
-new simpleParallax(image, {
+const image01 = document.getElementsByClassName("thumbnail");
+new simpleParallax(image01, {
   scale: 1.2,
   orientation: "up",
   delay: 1,
 });
-var image = document.getElementsByClassName("thumbnail2");
-new simpleParallax(image, {
+const image02 = document.getElementsByClassName("thumbnail2");
+new simpleParallax(image02, {
+  scale: 1.2,
+  orientation: "down",
+  delay: 1,
+});
+const image03 = document.getElementsByClassName("thumbnail3");
+new simpleParallax(image03, {
   scale: 1.2,
   orientation: "down",
   delay: 1,
 });
 
 const parallax = document.querySelectorAll(".simpleParallax");
-console.log(parallax);
-parallax[0].innerHTML = `
+parallax[1].innerHTML = `
   <img
     class="thumbnail"
     src="https://v6.usestate.org/images/home/select-image01.webp"
@@ -221,3 +272,15 @@ parallax[0].innerHTML = `
     <p>HLL 중앙</p>
   </div>
 `;
+parallax[1].addEventListener("click", () => {
+  window.open("https://dongho9.github.io/HLL/", "_blank");
+});
+parallax[2].addEventListener("click", () => {
+  window.open("https://dongho9.github.io/Republic-Records/", "_blank");
+});
+parallax[3].addEventListener("click", () => {
+  window.open("https://dongho9.github.io/musign/", "_blank");
+});
+parallax[4].addEventListener("click", () => {
+  window.open("https://dongho9.github.io/Spotify/", "_blank");
+});
