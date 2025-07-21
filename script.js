@@ -300,23 +300,16 @@ new simpleParallax(image03, {
 
 const parallax = document.querySelectorAll(".simpleParallax");
 
-let div0 = document.createElement("div");
-div.classList.add("cloneText");
-div.innerHTML = `<p>HLL</p>`;
-parallax[1].appendChild(div);
+const texts = ["HLL", "Republic Records", "Musign", "Spotify", "Netflix"];
 
-div.innerHTML = `<p>Republic Records</p>`;
-parallax[2].appendChild(div0);
-
-div.innerHTML = `<p>Musign</p>`;
-parallax[3].appendChild(div);
-
-div.innerHTML = `<p>Spotify</p>`;
-parallax[4].appendChild(div);
-
-div.innerHTML = `<p>Netflix</p>`;
-parallax[5].appendChild(div);
-
+texts.forEach((text, index) => {
+  if (parallax[index + 1]) {
+    let div = document.createElement("div");
+    div.innerHTML = `<p>${text}</p>`;
+    div.classList.add("cloneText");
+    parallax[index + 1].appendChild(div);
+  }
+});
 parallax[1].addEventListener("click", () => {
   window.open("https://dongho9.github.io/HLL/", "_blank");
 });
