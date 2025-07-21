@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import "./styles/reset.css";
 @import "./styles/variables.css";
 html {
@@ -11,6 +12,8 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   background: #111;
+  font-family: "Pretendard";
+  cursor: none;
 }
 
 .introSection {
@@ -45,7 +48,7 @@ body {
 
 header {
   position: fixed;
-  z-index: 2;
+  z-index: 4;
   border-radius: 8px;
   overflow: hidden;
   mix-blend-mode: difference;
@@ -78,7 +81,6 @@ header nav ul {
 }
 header nav ul li {
   width: 100%;
-  cursor: pointer;
   text-align: center;
   text-align: right;
 }
@@ -86,6 +88,10 @@ header nav ul li a {
   display: block;
   color: #fff;
   font-size: 1.4rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  text-transform: uppercase;
 }
 header nav ul li.active {
   background: #fff;
@@ -115,6 +121,9 @@ header nav ul li.active {
           filter: brightness(1);
   padding-bottom: 20px;
   font-family: "ivyPresto";
+  z-index: 3;
+  text-wrap: balance;
+  aspect-ratio: 14/1;
 }
 .con01::after {
   content: "";
@@ -140,15 +149,14 @@ header nav ul li.active {
           flex-direction: column;
 }
 .con01 div p {
-  font-size: 14rem;
+  font-size: 10vw;
   text-transform: uppercase;
   z-index: 1;
   color: #fff;
+  white-space: nowrap;
 }
 .con01 div p:first-child {
-  text-indent: 1.2rem;
-  font-size: 1.4rem;
-  letter-spacing: -6px;
+  font-size: 2rem;
 }
 .con01 video {
   position: absolute;
@@ -171,8 +179,9 @@ main {
   width: 100%;
   margin-top: 100vh;
   background: #fff;
-  z-index: 1;
+  z-index: 3;
   color: #111;
+  overflow: hidden;
 }
 main section {
   width: 100vw;
@@ -210,30 +219,81 @@ main .projectText {
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
-  gap: 20px;
+  gap: 10px;
 }
 main .projectText h3 {
   font-size: 4rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  margin-bottom: 10px;
 }
 main .projectText p {
-  line-height: 1.2rem;
+  line-height: 1.4rem;
+  color: #bbbbbb;
+  font-size: 1.4rem;
+}
+main .projectText p:first-of-type > span {
+  color: #fff;
+  font-weight: bold;
 }
 main .projectText .hashtag {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 5px;
+  font-size: 1.4rem;
+  gap: 10px;
+  color: #747474;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main .projectText .hashtag span {
+  white-space: nowrap;
+}
+main .projectText .hashtag span span {
+  color: greenyellow;
+  margin-right: 2px;
 }
 main .projectText .btnWrap {
+  font-size: 1.4rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 20px;
 }
+main .projectText .btnWrap p {
+  padding: 8px 14px;
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+          backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+main .projectText .btnWrap p a {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+main .projectText .btnWrap p:hover {
+  background: #fff;
+}
+main .projectText .btnWrap p:hover a {
+  color: #111 !important;
+}
 main .mask {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   position: absolute;
   top: 0;
   left: 0;
@@ -283,33 +343,22 @@ main .con02 div:last-of-type {
 }
 main .con02 div h3 {
   font-family: "ivyPresto";
-  font-size: 14rem;
+  font-size: 10rem;
   width: 100%;
   position: absolute;
   bottom: 3%;
   z-index: 1;
   text-align: center;
+  font-weight: normal;
 }
 main .con02 div p {
   padding: 30% 40% 10% 3%;
   font-family: "pretendard";
   line-height: 1.4;
 }
-main .pinSection {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-main .pinSection section {
-  width: 90%;
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
 main .sectionTitle {
   top: 0;
+  font-family: "ivyPresto";
 }
 main .sectionTitle .titleText {
   position: absolute;
@@ -330,15 +379,33 @@ main .sectionTitle .titleText p:first-child {
 main .sectionTitle .titleText p:last-child {
   right: -1000%;
 }
+main .pinSection {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+}
+main .pinSection section {
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+main .pinSection section .projectText p {
+  line-height: 1.2;
+}
 main .con03 {
-  top: 100vh;
-  background: sandybrown;
+  top: 0;
 }
 main .con04 {
-  top: 200vh;
+  background: url("https://imagedelivery.net/djfufN1Ft6CV8Emdrip5jA/b5b7f4ab-9b9a-4c77-0c49-0470578f9b00/w=1024,h=1280") center/cover no-repeat;
+  top: 100vh;
 }
 main .con05 {
-  top: 300vh;
+  background: url("https://imagedelivery.net/djfufN1Ft6CV8Emdrip5jA/96791176-b71d-4e3e-c33a-43a727073d00/w=1024,h=1536") center/cover no-repeat;
+  top: 200vh;
 }
 
 .grid {
@@ -358,21 +425,29 @@ main .con05 {
   height: 80rem;
   width: calc(50% - 1.5rem);
   border-radius: 4px;
-  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.8rem;
+}
+.grid div:hover {
+  -webkit-filter: brightness(0.7);
+          filter: brightness(0.7);
 }
 .grid div.simpleParallax {
   position: relative;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
 }
 .grid div.simpleParallax .cloneText {
   position: absolute;
   left: 3%;
   bottom: 3%;
-  color: #0c0707;
+  color: #fff;
   width: auto;
   height: auto;
   z-index: 1;
+  text-transform: uppercase;
 }
 .grid div.simpleParallax img {
   width: 100%;
@@ -383,18 +458,36 @@ main .con05 {
   transition: all 0.3s;
   display: block;
 }
-.grid div.simpleParallax:hover img {
-  -webkit-filter: brightness(0.7);
-          filter: brightness(0.7);
-}
 .grid div:nth-child(3) {
-  width: 100%;
+  width: calc(100% - 2rem);
+}
+.grid div:nth-child(3) .cloneText {
+  left: 1.5%;
 }
 
 footer {
+  text-align: center;
   width: 100%;
-  height: 100vh;
-  background: #fff;
+  height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  line-height: 1;
+  padding: 100px 3% 0;
+  text-wrap: balance;
+  aspect-ratio: 10/1;
+}
+footer div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -404,10 +497,37 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-attachment: fixed;
 }
-footer p {
-  color: #111;
+footer div p {
+  white-space: nowrap;
+  font-size: 13.7vw;
+}
+footer ul {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.2rem;
+  padding: 10px 0;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  text-align: center;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+footer ul li:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 @-webkit-keyframes moveBackground {
@@ -492,4 +612,129 @@ footer p {
 @font-face {
   font-family: pretendard;
   src: url("./fonts/Pretendard-Regular.otf");
+}
+@media screen and (max-width: 1024px) {
+  main .con02 div h3 {
+    font-size: 8rem;
+  }
+  .grid div {
+    height: 50rem;
+  }
+  footer {
+    height: 40vh;
+  }
+  footer div p {
+    font-size: 13.4vw;
+  }
+}
+@media screen and (max-width: 767px) {
+  main .projectText {
+    max-width: 400px;
+    gap: 14px;
+  }
+  main .projectText .hashtag {
+    gap: 8px;
+  }
+  main .pinSection section .projectText p {
+    line-height: 1.3;
+  }
+  main .con02 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-top: 30px;
+  }
+  main .con02 > div {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 100%;
+  }
+  main .con02 img {
+    position: absolute;
+    width: 40%;
+    height: 45%;
+    bottom: 0;
+    right: 10%;
+    left: auto;
+  }
+  main .con02 div {
+    position: absolute;
+  }
+  main .con02 div:last-of-type {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+  }
+  main .con02 div h3 {
+    font-size: 6rem;
+    position: static;
+    bottom: auto;
+  }
+  main .con02 div p {
+    padding: 0;
+    width: 60%;
+    padding-left: 3%;
+    padding-top: 10%;
+  }
+  .grid {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+  }
+  .grid div {
+    width: 100%;
+    height: 40rem;
+  }
+  .grid div.simpleParallax:nth-child(3) {
+    width: 100%;
+  }
+  footer {
+    height: 35vh;
+  }
+  footer ul {
+    border: none;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 1.2rem;
+    font-size: 1.4rem;
+  }
+  footer ul li:nth-child(2) {
+    position: static;
+    -webkit-transform: none;
+            transform: none;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+}
+.pointed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+  mix-blend-mode: difference;
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border-radius: 50%;
+}
+.pointed.active {
+  -webkit-transform: scale(4);
+          transform: scale(4); /* 커짐 */
+  border-color: yellow;
 }

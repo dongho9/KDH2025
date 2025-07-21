@@ -20,6 +20,8 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   background: #111;
+  font-family: "Pretendard";
+  cursor: none;
 }
 
 .introSection {
@@ -43,7 +45,7 @@ body {
 // 헤더영역
 header {
   position: fixed;
-  z-index: 2;
+  z-index: 4;
   border-radius: 8px;
   overflow: hidden;
   mix-blend-mode: difference;
@@ -53,7 +55,6 @@ header {
   top: 0;
   width: 100%;
   padding: 3%;
-  // backdrop-filter: blur(16px) saturate(180%);
   h1 {
     font-family: "ivyPresto";
   }
@@ -65,13 +66,16 @@ header {
       gap: 16px;
       li {
         width: 100%;
-        cursor: pointer;
         text-align: center;
         text-align: right;
         a {
           display: block;
           color: #fff;
           font-size: 1.4rem;
+          font-family: "Lato", sans-serif;
+          font-weight: 300;
+          font-style: normal;
+          text-transform: uppercase;
         }
         &.active {
           background: #fff;
@@ -98,6 +102,9 @@ header {
   filter: brightness(1);
   padding-bottom: 20px;
   font-family: "ivyPresto";
+  z-index: 3;
+  text-wrap: balance;
+  aspect-ratio: 14 / 1;
   &::after {
     content: "";
     top: -10rem;
@@ -116,14 +123,13 @@ header {
     display: flex;
     flex-direction: column;
     p {
-      font-size: 14rem;
+      font-size: 10vw;
       text-transform: uppercase;
       z-index: 1;
       color: #fff;
+      white-space: nowrap;
       &:first-child {
-        text-indent: 1.2rem;
-        font-size: 1.4rem;
-        letter-spacing: -6px;
+        font-size: 2rem;
       }
     }
   }
@@ -146,8 +152,9 @@ main {
   width: 100%;
   margin-top: 100vh;
   background: #fff;
-  z-index: 1;
+  z-index: 3;
   color: #111;
+  overflow: hidden;
   section {
     @include contentsCenter;
   }
@@ -164,26 +171,72 @@ main {
     max-width: 600px;
     flex-direction: column;
     text-align: center;
-    gap: 20px;
+    gap: 10px;
     h3 {
       font-size: 4rem;
+      font-family: "Lato", sans-serif;
+      font-weight: 300;
+      font-style: normal;
+      margin-bottom: 10px;
     }
     p {
-      line-height: 1.2rem;
+      line-height: 1.4rem;
+      color: #bbbbbb;
+      font-size: 1.4rem;
+      &:first-of-type > span {
+        color: #fff;
+        font-weight: bold;
+      }
     }
     .hashtag {
       display: flex;
       gap: 5px;
+      font-size: 1.4rem;
+      gap: 10px;
+      color: #747474;
+      font-family: "Lato", sans-serif;
+      font-weight: 300;
+      font-style: normal;
+      flex-wrap: wrap;
+      justify-content: center;
+      span {
+        white-space: nowrap;
+        span {
+          color: greenyellow;
+          margin-right: 2px;
+        }
+      }
     }
     .btnWrap {
+      font-size: 1.4rem;
       display: flex;
       gap: 20px;
+      p {
+        padding: 8px 14px;
+        backdrop-filter: blur(16px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        transition: all 0.5s;
+
+        a {
+          transition: all 0.5s;
+          font-family: "Lato", sans-serif;
+          font-weight: 300;
+          font-style: normal;
+        }
+        &:hover {
+          background: #fff;
+          a {
+            color: #111 !important;
+          }
+        }
+      }
     }
   }
   .mask {
     width: 100%;
     height: 100%;
-    background: rgba($color: #000000, $alpha: 0.7);
+    background: rgba($color: #000000, $alpha: 0.8);
     position: absolute;
     top: 0;
     left: 0;
@@ -199,11 +252,7 @@ main {
     top: 0;
   }
   .con02 {
-    // background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    //   url("https://imagedelivery.net/djfufN1Ft6CV8Emdrip5jA/2c482812-11dd-4498-7756-a4a2d1cddd00/w=1476,h=2048")
-    //     center/cover no-repeat;
     background: #fff;
-    // background-attachment: fixed;
     color: #111;
     position: relative;
     display: flex;
@@ -226,12 +275,13 @@ main {
       }
       h3 {
         font-family: "ivyPresto";
-        font-size: 14rem;
+        font-size: 10rem;
         width: 100%;
         position: absolute;
         bottom: 3%;
         z-index: 1;
         text-align: center;
+        font-weight: normal;
       }
       p {
         padding: 30% 40% 10% 3%;
@@ -241,20 +291,9 @@ main {
     }
   }
 
-  .pinSection {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    section {
-      width: 90%;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
   .sectionTitle {
     top: 0;
+    font-family: "ivyPresto";
     .titleText {
       position: absolute;
       left: 50%;
@@ -274,18 +313,40 @@ main {
       }
     }
   }
+  .pinSection {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    color: #fff;
+    section {
+      width: 90%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      .projectText {
+        p {
+          line-height: 1.2;
+        }
+      }
+    }
+  }
+
   .con03 {
-    top: 100vh;
-    background: sandybrown;
+    top: 0;
   }
   .con04 {
-    top: 200vh;
-    // background: sandybrown;
+    background: url("https://imagedelivery.net/djfufN1Ft6CV8Emdrip5jA/b5b7f4ab-9b9a-4c77-0c49-0470578f9b00/w=1024,h=1280")
+      center/cover no-repeat;
+    top: 100vh;
   }
   .con05 {
-    top: 300vh;
-    // background: sandybrown;
+    background: url("https://imagedelivery.net/djfufN1Ft6CV8Emdrip5jA/96791176-b71d-4e3e-c33a-43a727073d00/w=1024,h=1536")
+      center/cover no-repeat;
+    top: 200vh;
   }
+}
+.gridTitle {
 }
 .grid {
   display: flex;
@@ -298,18 +359,25 @@ main {
     height: 80rem;
     width: calc(50% - 1.5rem);
     border-radius: 4px;
-    cursor: pointer;
+    transition: all 0.5s;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.8rem;
+    &:hover {
+      filter: brightness(0.7);
+    }
     &.simpleParallax {
       position: relative;
-      transition: all 0.3s;
       .cloneText {
         position: absolute;
         left: 3%;
         bottom: 3%;
-        color: #0c0707;
+        color: #fff;
         width: auto;
         height: auto;
         z-index: 1;
+        text-transform: uppercase;
       }
       img {
         width: 100%;
@@ -317,11 +385,6 @@ main {
         object-fit: cover;
         transition: all 0.3s;
         display: block;
-      }
-      &:hover {
-        img {
-          filter: brightness(0.7);
-        }
       }
     }
 
@@ -334,7 +397,10 @@ main {
     //     center/cover no-repeat;
     // }
     &:nth-child(3) {
-      width: 100%;
+      width: calc(100% - 2rem);
+      .cloneText {
+        left: 1.5%;
+      }
     }
     // &:nth-child(4) {
     //   background: url("https://v6.usestate.org/images/home/select-image01.webp")
@@ -348,15 +414,47 @@ main {
 }
 // 푸터영역
 footer {
+  text-align: center;
   width: 100%;
-  height: 100vh;
-  background: #fff;
+  height: 50vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-attachment: fixed;
-  p {
-    color: #111;
+  flex-direction: column;
+  justify-content: space-between;
+  line-height: 1;
+  padding: 100px 3% 0;
+  text-wrap: balance;
+  aspect-ratio: 10 / 1;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      white-space: nowrap;
+      font-size: 13.7vw;
+    }
+  }
+  ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    padding: 10px 0;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    text-align: center;
+    position: relative;
+    align-items: center;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    li {
+      &:nth-child(2) {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
   }
 }
 @keyframes moveBackground {
@@ -420,4 +518,142 @@ footer {
 @font-face {
   font-family: pretendard;
   src: url("./fonts/Pretendard-Regular.otf");
+}
+
+@media screen and (max-width: 1024px) {
+  main {
+    .con02 {
+      div {
+        h3 {
+          font-size: 8rem;
+        }
+        p {
+        }
+      }
+    }
+  }
+  .grid {
+    div {
+      height: 50rem;
+    }
+  }
+  footer {
+    height: 40vh;
+    div {
+      p {
+        font-size: 13.4vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  // .con01 {
+  //   div {
+  //     p {
+  //       font-size: 7rem;
+  //     }
+  //   }
+  // }
+  main {
+    .projectText {
+      max-width: 400px;
+      gap: 14px;
+      .hashtag {
+        gap: 8px;
+      }
+    }
+    .pinSection {
+      section {
+        .projectText {
+          p {
+            line-height: 1.3;
+          }
+        }
+      }
+    }
+    .con02 {
+      display: flex;
+      flex-direction: column;
+      padding-top: 30px;
+      & > div {
+        flex: none;
+        width: 100%;
+      }
+      img {
+        position: absolute;
+        width: 40%;
+        height: 45%;
+        bottom: 0;
+        right: 10%;
+        left: auto;
+      }
+      div {
+        position: absolute;
+        &:last-of-type {
+          flex: none;
+        }
+        h3 {
+          font-size: 6rem;
+          position: static;
+          bottom: auto;
+        }
+        p {
+          padding: 0;
+          width: 60%;
+          padding-left: 3%;
+          padding-top: 10%;
+        }
+      }
+    }
+  }
+  .grid {
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    div {
+      width: 100%;
+      height: 40rem;
+      &.simpleParallax {
+        &:nth-child(3) {
+          width: 100%;
+        }
+      }
+    }
+  }
+  footer {
+    height: 35vh;
+    ul {
+      border: none;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1.2rem;
+      font-size: 1.4rem;
+      li {
+        &:nth-child(2) {
+          position: static;
+          transform: none;
+          order: -1;
+        }
+      }
+    }
+  }
+}
+
+.pointed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+  mix-blend-mode: difference;
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border-radius: 50%;
+  &.active {
+    transform: scale(4); /* 커짐 */
+    border-color: yellow;
+  }
 }
