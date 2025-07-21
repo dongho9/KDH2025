@@ -268,7 +268,6 @@ gsap.from(mySplitText04, {
   scrollTrigger: {
     trigger: "footer",
     end: "top top",
-    markers: true,
   },
 });
 
