@@ -300,40 +300,22 @@ new simpleParallax(image03, {
 
 const parallax = document.querySelectorAll(".simpleParallax");
 
-parallax[1].innerHTML = `<img class="thumbnail"
-src="https://v6.usestate.org/images/home/select-image01.webp" alt=""/>
-<div class="cloneText"> 
-  <p>HLL</p>
-</div>
-`;
+let div0 = document.createElement("div");
+div.classList.add("cloneText");
+div.innerHTML = `<p>HLL</p>`;
+parallax[1].appendChild(div);
 
-parallax[2].innerHTML = `<img class="thumbnail"
-src="https://v6.usestate.org/images/home/select-image05.webp" alt=""/>
-<div class="cloneText"> 
-  <p>Republic Records</p>
-</div>
-`;
+div.innerHTML = `<p>Republic Records</p>`;
+parallax[2].appendChild(div0);
 
-parallax[3].innerHTML = `<img class="thumbnail"
-src="https://v6.usestate.org/images/home/select-image06.webp" alt=""/>
-<div class="cloneText"> 
-  <p>Musign</p>
-</div>
-`;
+div.innerHTML = `<p>Musign</p>`;
+parallax[3].appendChild(div);
 
-parallax[4].innerHTML = `<img class="thumbnail"
-src="https://v6.usestate.org/images/home/select-image01.webp" alt=""/>
-<div class="cloneText"> 
-  <p>Spotify</p>
-</div>
-`;
+div.innerHTML = `<p>Spotify</p>`;
+parallax[4].appendChild(div);
 
-parallax[5].innerHTML = `<img class="thumbnail"
-src="https://v6.usestate.org/images/home/select-image04.webp" alt=""/>
-<div class="cloneText"> 
-  <p></p>
-</div>
-`;
+div.innerHTML = `<p>Netflix</p>`;
+parallax[5].appendChild(div);
 
 parallax[1].addEventListener("click", () => {
   window.open("https://dongho9.github.io/HLL/", "_blank");
