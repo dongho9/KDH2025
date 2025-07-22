@@ -299,26 +299,3 @@ new simpleParallax(image03, {
 });
 
 const parallax = document.querySelectorAll(".simpleParallax");
-
-const texts = ["HLL", "Republic Records", "Musign", "Spotify", "Netflix"];
-
-texts.forEach((text, index) => {
-  if (parallax[index + 1]) {
-    let div = document.createElement("div");
-    div.innerHTML = `<p>${text}</p>`;
-    div.classList.add("cloneText");
-    parallax[index + 1].appendChild(div);
-  }
-});
-parallax[1].addEventListener("click", () => {
-  window.open("https://dongho9.github.io/HLL/", "_blank");
-});
-parallax[2].addEventListener("click", () => {
-  window.open("https://dongho9.github.io/Republic-Records/", "_blank");
-});
-parallax[3].addEventListener("click", () => {
-  window.open("https://dongho9.github.io/musign/", "_blank");
-});
-parallax[4].addEventListener("click", () => {
-  window.open("https://dongho9.github.io/Spotify/", "_blank");
-});
