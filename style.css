@@ -442,6 +442,9 @@ main .con05 {
   height: auto;
   text-transform: uppercase;
 }
+.grid div .cloneText::after {
+  display: none;
+}
 .grid div .cloneText02 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -461,6 +464,9 @@ main .con05 {
   background: #111;
   border-radius: 4px;
   font-size: 1.2rem;
+}
+.grid div .cloneText02::after {
+  display: none;
 }
 .grid div:hover::after {
   opacity: 1;

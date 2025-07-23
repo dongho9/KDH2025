@@ -19,7 +19,7 @@ body {
   font-size: 1.6rem;
   overflow-x: hidden;
   overflow-y: hidden;
-  background: #111;
+  background: map-get($map: $color, $key: dark);
   font-family: "Pretendard";
   cursor: none;
 }
@@ -49,7 +49,7 @@ header {
   border-radius: 8px;
   overflow: hidden;
   mix-blend-mode: difference;
-  color: #fff;
+  color: map-get($map: $color, $key: white);
   display: flex;
   justify-content: space-between;
   top: 0;
@@ -70,7 +70,7 @@ header {
         text-align: right;
         a {
           display: block;
-          color: #fff;
+          color: map-get($map: $color, $key: white);
           font-size: 1.4rem;
           font-family: "Lato", sans-serif;
           font-weight: 300;
@@ -78,8 +78,8 @@ header {
           text-transform: uppercase;
         }
         &.active {
-          background: #fff;
-          color: #111;
+          background: map-get($map: $color, $key: white);
+          color: map-get($map: $color, $key: dark);
         }
       }
     }
@@ -126,7 +126,7 @@ header {
       font-size: 10vw;
       text-transform: uppercase;
       z-index: 1;
-      color: #fff;
+      color: map-get($map: $color, $key: white);
       white-space: nowrap;
       &:first-child {
         font-size: 2rem;
@@ -151,9 +151,9 @@ main {
   position: relative;
   width: 100%;
   margin-top: 100vh;
-  background: #fff;
+  background: map-get($map: $color, $key: white);
   z-index: 3;
-  color: #111;
+  color: map-get($map: $color, $key: dark);
   overflow: hidden;
   section {
     @include contentsCenter;
@@ -181,10 +181,10 @@ main {
     }
     p {
       line-height: 1.4rem;
-      color: #bbbbbb;
+      color: #bbb;
       font-size: 1.4rem;
       &:first-of-type > span {
-        color: #fff;
+        color: map-get($map: $color, $key: white);
         font-weight: bold;
       }
     }
@@ -217,7 +217,6 @@ main {
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 10px;
         transition: all 0.5s;
-
         a {
           transition: all 0.5s;
           font-family: "Lato", sans-serif;
@@ -225,9 +224,9 @@ main {
           font-style: normal;
         }
         &:hover {
-          background: #fff;
+          background: map-get($map: $color, $key: white);
           a {
-            color: #111 !important;
+            color: map-get($map: $color, $key: dark) !important;
           }
         }
       }
@@ -252,8 +251,8 @@ main {
     top: 0;
   }
   .con02 {
-    background: #fff;
-    color: #111;
+    background: map-get($map: $color, $key: white);
+    color: map-get($map: $color, $key: dark);
     position: relative;
     display: flex;
     & > div {
@@ -318,7 +317,7 @@ main {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    color: #fff;
+    color: map-get($map: $color, $key: white);
     section {
       width: 90%;
       position: absolute;
@@ -370,10 +369,13 @@ main {
       position: absolute;
       left: 3%;
       bottom: 3%;
-      color: #fff;
+      color: map-get($map: $color, $key: white);
       width: auto;
       height: auto;
       text-transform: uppercase;
+      &::after {
+        display: none;
+      }
     }
     .cloneText02 {
       display: flex;
@@ -382,15 +384,18 @@ main {
       position: absolute;
       left: 3%;
       top: 3%;
-      color: #fff;
+      color: map-get($map: $color, $key: white);
       width: auto;
       height: auto;
       text-transform: uppercase;
       p {
         padding: 5px;
-        background: #111;
+        background: map-get($map: $color, $key: dark);
         border-radius: 4px;
         font-size: 1.2rem;
+      }
+      &::after {
+        display: none;
       }
     }
     &:hover {
@@ -458,8 +463,8 @@ footer {
     justify-content: space-between;
     font-size: 1.2rem;
     padding: 10px 0;
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
+    border-top: 1px solid map-get($map: $color, $key: white);
+    border-bottom: 1px solid map-get($map: $color, $key: white);
     text-align: center;
     position: relative;
     align-items: center;
