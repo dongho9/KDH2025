@@ -144,7 +144,7 @@ header {
     opacity: 0;
     pointer-events: none;
     p {
-      background: map-get($map: $color, $key: dark);
+      background: map-get($map: $color, $key: white);
       height: 2px;
       position: absolute;
       transition: all 0.3s;
@@ -712,6 +712,9 @@ footer {
           }
         }
       }
+    }
+    .navBar {
+      right: 5%;
     }
     .myInfo {
       right: auto;

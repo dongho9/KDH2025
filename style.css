@@ -343,7 +343,7 @@ header .navBar {
   pointer-events: none;
 }
 header .navBar p {
-  background: #111;
+  background: #fff;
   height: 2px;
   position: absolute;
   -webkit-transition: all 0.3s;
@@ -1003,6 +1003,9 @@ footer ul li:nth-child(2) {
   }
   header nav ul li a {
     font-size: 4rem;
+  }
+  header .navBar {
+    right: 5%;
   }
   header .myInfo {
     right: auto;
