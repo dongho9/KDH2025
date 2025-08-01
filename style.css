@@ -1,6 +1,187 @@
 @charset "UTF-8";
-@import "./styles/reset.css";
-@import "./styles/variables.css";
+/* CSS 초기화 */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+address {
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -14,6 +195,9 @@ body {
   background: #111;
   font-family: "Pretendard";
   cursor: none;
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .introSection {
@@ -62,9 +246,64 @@ header {
   top: 0;
   width: 100%;
   padding: 3%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+header::after {
+  content: "";
+  position: fixed;
+  left: 100%;
+  top: 0;
+  width: 0%;
+  height: 100vh;
+  background: #111;
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+  z-index: -1;
+}
+header.active {
+  height: 100vh;
+  mix-blend-mode: normal;
+  overflow: visible;
+}
+header.active::after {
+  width: 100%;
+  left: 0;
+}
+header.active nav {
+  opacity: 1;
+  pointer-events: fill;
+}
+header.active nav ul li {
+  text-align: left;
+}
+header.active .navBar p {
+  background: #fff;
+}
+header.active .navBar p:first-child {
+  top: 0;
+  left: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+header.active .navBar p:last-child {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  width: 100%;
+  top: 0%;
+  right: 0;
+}
+header.active .myInfo {
+  opacity: 1;
+  pointer-events: fill;
+  visibility: visible;
 }
 header h1 {
   font-family: "ivyPresto";
+}
+header nav {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 header nav ul {
   display: -webkit-box;
@@ -81,7 +320,6 @@ header nav ul {
 }
 header nav ul li {
   width: 100%;
-  text-align: center;
   text-align: right;
 }
 header nav ul li a {
@@ -93,9 +331,70 @@ header nav ul li a {
   font-style: normal;
   text-transform: uppercase;
 }
-header nav ul li.active {
-  background: #fff;
-  color: #111;
+header .navBar {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  position: absolute;
+  width: 24px;
+  height: 8px;
+  right: 3%;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+}
+header .navBar p {
+  background: #111;
+  height: 2px;
+  position: absolute;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+header .navBar p:first-child {
+  width: 100%;
+  left: 0;
+}
+header .navBar p:last-child {
+  width: 60%;
+  top: 100%;
+  right: 0;
+}
+header .myInfo {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  right: 10%;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+  top: 50%;
+}
+header .myInfo div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 4px;
+}
+header .myInfo div p {
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  font-weight: lighter;
+}
+header .myInfo div p:first-child {
+  color: #666;
+  font-size: 1.4rem;
+  text-transform: uppercase;
 }
 
 .con01 {
@@ -230,7 +529,7 @@ main .projectText h3 {
 }
 main .projectText p {
   line-height: 1.4rem;
-  color: #bbbbbb;
+  color: #bbb;
   font-size: 1.4rem;
 }
 main .projectText p:first-of-type > span {
@@ -654,6 +953,34 @@ footer ul li:nth-child(2) {
   src: url("./fonts/Pretendard-Regular.otf");
 }
 @media screen and (max-width: 1024px) {
+  header nav {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  header nav ul {
+    gap: 30px;
+  }
+  header nav ul li {
+    overflow: hidden;
+    height: 6rem;
+  }
+  header nav ul li a {
+    -webkit-transform: translateY(60px);
+            transform: translateY(60px);
+    font-size: 5rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    visibility: hidden;
+  }
+  header .navBar {
+    opacity: 1;
+    pointer-events: fill;
+  }
   main .con02 div h3 {
     font-size: 8rem;
   }
@@ -668,6 +995,21 @@ footer ul li:nth-child(2) {
   }
 }
 @media screen and (max-width: 767px) {
+  header {
+    padding: 5%;
+  }
+  header nav {
+    top: 40%;
+  }
+  header nav ul li a {
+    font-size: 4rem;
+  }
+  header .myInfo {
+    right: auto;
+    left: 10%;
+    top: auto;
+    bottom: 10%;
+  }
   main .projectText {
     max-width: 400px;
     gap: 14px;

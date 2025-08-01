@@ -213,10 +213,12 @@ nav.forEach((item) => {
     link = item.getAttribute("href");
     e.preventDefault();
     lenis.scrollTo(link);
+    document.querySelector("header").classList.remove("active");
   });
 });
 home.addEventListener("click", () => {
   lenis.scrollTo(0, 0);
+  document.querySelector("header").classList.remove("active");
 });
 
 gsap.to("main", {
@@ -299,3 +301,36 @@ new simpleParallax(image03, {
 });
 
 const parallax = document.querySelectorAll(".simpleParallax");
+
+const navBar = document.querySelector(".navBar");
+navBar.addEventListener("click", () => {
+  // 애니메이션 시작 전에 기존 트윈 제거
+  gsap.killTweensOf("header li a");
+  gsap.killTweensOf(".myInfo div");
+  document.querySelector("header").classList.toggle("active");
+  gsap.fromTo(
+    "header li a",
+    { y: 60, visibility: "hidden" },
+    {
+      y: 0,
+      visibility: "visible",
+      duration: 0.8,
+      ease: "power3.out",
+      stagger: 0.2,
+      delay: 0.6,
+    }
+  );
+  gsap.fromTo(
+    ".myInfo div",
+    { x: 30, opacity: 0, visibility: "hidden" },
+    {
+      x: 0,
+      opacity: 1,
+      visibility: "visible",
+      duration: 0.8,
+      ease: "power3.out",
+      stagger: 0.2,
+      delay: 0.6,
+    }
+  );
+});
